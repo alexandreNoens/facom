@@ -1,163 +1,125 @@
-
-
-# Livrable final à FACOM
-
-L'ensemble du travail des équipes est consolidé en un dossier unique transmis à la Direction RSE de FACOM comme proposition officielle de seconde vie pour le produit SCANDIAG®.
-
-Contenu du dossier équipe :
-- Membres de l'équipe (noms, classe, campus (préciser Ville Ynov Campus))
-- Datasheets des composants clés
-- Schéma fonctionnel du produit
-- Descriptifs des idées de réemploi avec notation
-- Concept retenu et justification
-- Archive du ou des programmes développés (firmware)
-- Documentation des fonctions développées
-
-# FACOM SCANDIAG® — README Composants
-> Référence : DX.TSCANPB · Concours National Informatique Ynov × FACOM  
-> Document de référence — Rétro-ingénierie & Réemploi
+# Concours National Informatique — FACOM × Ynov
+> Réemploi RSE du produit FACOM SCANDIAG® (réf. DX.TSCANPB)
 
 ---
 
-## 1. Présentation du produit
+## Équipe
 
-| Paramètre | Valeur |
-|---|---|
-| Nom | FACOM SCANDIAG® |
-| Référence | DX.TSCANPB |
-| Usage d'origine | Diagnostic rapide d'usure des disques de frein et des pneus |
-| Technologie | Laser + caméra combinés |
-| Avantage clé | Inspection sans démonter les roues |
-| Statut | Produit discontinué — stock immobilisé |
-| Logiciel fourni | Application intuitive (disques / pneus / contrôle rapide) |
-| Rapport | Imprimable / email / SMS |
+| Nom | Classe | Campus |
+|---|---|---|
+| Noens Alexandre| DEVFLSTK MAST1 B | Lyon Ynov |
+| Adou Eddin | DEVFLSTK MAST1 B | Lyon Ynov |
+| Mechta Yanis| DEVFLSTK MAST1 B | Lyon Ynov |
+| Stolz Hisami | DEVFLSTK MAST1 B | Lyon Ynov |
 
 ---
 
-## 2. Spécifications techniques
+## Contexte du challenge
 
-| Paramètre | Valeur |
-|---|---|
-| Type de batterie | Li-Ion |
-| Capacité batterie | 0,620 Ah |
-| Tension batterie | 3,7 VCC |
-| Autonomie | 500 mesures (environ 60 véhicules) |
-| Alimentation externe | 100–240 VCA |
-| Connecteur alimentation | USB Mini-B (5V / 0,5A) |
-| Laser | Classe 3R |
-| Communication sans fil | Module Bluetooth® intégré |
-| Température de fonctionnement | 0 à 40 °C |
-| Température de stockage | -20 à 60 °C |
-| Conformité | CE / Directive 2014/53/UE / RoHS / EMC |
-| Dimensions boîtier | 330 x 215 x 60 mm |
+Le produit FACOM SCANDIAG® n'est plus commercialisé mais un stock conséquent reste immobilisé. La Direction RSE de FACOM lance un défi national à l'ensemble des campus Ynov (niveaux B2→M2) : **trouver une seconde vie aux composants** afin de revaloriser les pièces et éviter le gaspillage industriel. Les meilleures propositions seront remises directement à la Direction RSE de FACOM dans le cadre d'un partenariat industriel concret.
+
+**Format :** 7h · équipes de 4 à 6 étudiants · multi-campus en parallèle
 
 ---
 
-## 3. Composants identifiés
-
-### 3.1 Trouvés lors du démontage
-
-| Référence | Type | Rôle | Fabricant | Potentiel réemploi |
-|---|---|---|---|---|
-| IS42S16400J-6BLI | SDRAM 64Mbit | Mémoire de travail du MCU | ISSI | ⭐⭐⭐ Très élevé |
-| WT12-A | Module Bluetooth 2.1+EDR | Communication sans fil | Bluegiga / Silicon Labs | ⭐⭐⭐ Très élevé |
-| RB151 | Diode redresseuse | Protection alimentation | Formosa | ⭐ Moyen |
-
-### 3.2 À identifier (liste de référence)
-
-| Composant recherché | Référence trouvée | Rôle | Statut |
-|---|---|---|---|
-| MCU / SoC | STM32F429NIH6 — ARM Cortex-M4, 180MHz, BGA216 | Traitement principal | ✅ Identifié |
-| Caméra CMOS | OV9712 (JAL-KM1-OV9712 V4.0) — 1Mpx, 30fps | Capture image | ✅ Identifié |
-| Laser + driver | Classe 3R, vert 510–530nm, ≤5mW — driver à vérifier | Mesure d'usure par projection | ⚠️ Driver à confirmer |
-| Batterie Li-Po | EEMB LP602248 — 3,7V / 620mAh / 2,3Wh, JST 2 broches | Alimentation portable | ✅ Identifié |
-| Module Bluetooth | WT12-A (Silicon Labs / Bluegiga) — BT Classic 2.1+EDR | Communication sans fil UART | ✅ Identifié |
-| Mémoire SDRAM | IS42S16400J-6BLI (ISSI) — 64Mbit, 4Mx16, bus FMC | Mémoire de travail / tampon image | ✅ Identifié |
-| Mémoire flash | Micron — marquage 9DA15 / RB151 (FBGA à décoder) | Stockage firmware / calibration | ⚠️ Référence à décoder |
-| Diode redresseuse | RB151 (Formosa) | Protection alimentation | ✅ Identifié |
-| Convertisseur DC-DC | 2 inductances visibles — références à vérifier | Génère rail 3,3V | ⚠️ À confirmer |
-| Régulateur de puissance | À vérifier | Stabilisation tensions caméra / laser | ⚠️ À confirmer |
-| Connecteur USB Mini-B | Confirmé — USB OTG vers MCU à vérifier | Charge + données | ✅ Identifié |
-| Bouton poussoir | Bouton multifonction unique — référence SMD à confirmer | Interface utilisateur | ✅ Identifié (visuel) |
-| LED RGB | Confirmée — bleu=BT / vert=charge / rouge=batterie faible | Indicateur de statut | ✅ Identifié |
-| Buzzer | Confirmé | Bips de confirmation sonore | ✅ Identifié |
----
-
-## 4. Schéma d'alimentation (restitué)
+## Structure du projet
 
 ```
-Batterie Li-Ion (3,7V)
-        │
-        ▼
-    [RB151]
-    Diode de protection
-    (empêche le courant de remonter)
-        │
-        ▼
-  [DC-DC Convertisseur]
-    Conversion tension
-        │
-        ├──► 3,3V ──► MCU / SoC
-        │            WT12-A (Bluetooth)
-        │            IS42S16400J (SDRAM)
-        │
-        └──► 5V  ──► Caméra CMOS
-                     Laser + driver
+facom/
+├── datasheets/          # Phase 1 — fiches composants + synthèses
+├── docs/                # Phase 1 & 2 — schémas fonctionnels, champ des possibles
+├── Phase 3 Ideation/    # Phase 3 — concepts de réemploi par membre
+└── README.md
 ```
 
 ---
 
-## 5. Potentiel de réemploi global
+## Phase 1 — Rétro-ingénierie
 
-| Composant | Usage dans le réemploi | Priorité | Disponibilité |
-|---|---|---|---|
-| Caméra CMOS | Vision par ordinateur / détection défauts | 🔴 Très haute | ⚠️ À identifier |
-| Laser classe 3R | Télémétrie / mesure dimensionnelle | 🔴 Très haute | ⚠️ À identifier |
-| MCU / SoC | Traitement embarqué / logique de détection | 🔴 Très haute | ⚠️ À identifier |
-| WT12-A (BT) | Transmission données vers dashboard / smartphone | 🟠 Haute | ✅ Identifié |
-| IS42S16400J (SDRAM) | Stockage temporaire images / mesures | 🟠 Haute | ✅ Identifié |
-| Batterie Li-Ion | Alimentation portable du système | 🟡 Moyenne | ✅ Identifié (doc) |
-| RB151 (diode) | Protection circuits dans nouveau projet | 🟢 Faible | ✅ Identifié |
+**Objectif :** identifier les composants clés et produire une synthèse fonctionnelle.
 
-## 6. Accès au firmware
+| Composant | Référence | Statut |
+|---|---|---|
+| MCU / SoC | STM32F429NIH6 — Cortex-M4, 180 MHz | ✅ Identifié |
+| Caméra CMOS | OV9712 — 1 Mpx, 30 fps | ✅ Identifié |
+| Bluetooth | WT12-A (Silicon Labs) — BT Classic 2.1+EDR | ✅ Identifié |
+| SDRAM | IS42S16400J-6BLI — 64 Mbit | ✅ Identifié |
+| Batterie | EEMB LP602248 — 3,7 V / 620 mAh | ✅ Identifié |
+| Laser | Classe 3R, vert 510–530 nm, ≤ 5 mW | ⚠️ Driver à confirmer |
+| Mémoire flash | Micron — marquage 9DA15 | ⚠️ Référence à décoder |
+| Diode redresseuse | RB151 (Formosa) | ✅ Identifié |
 
-### Voie A — Bootloader USB DFU *(sans soudure)*
-1. Forcer la broche **BOOT0 à l'état haut**
-2. Brancher le câble **USB Mini-B**
-3. Flasher via **STM32CubeProgrammer** (logiciel gratuit ST)
+**Fichiers associés :**
+- [`datasheets/`](datasheets/) — datasheets et synthèses par composant
+- [`docs/SCHEMA_PRINCIPE_FONCTIONNEL.md`](docs/SCHEMA_PRINCIPE_FONCTIONNEL.md) — schéma d'alimentation et interfaces
+- [`docs/FICHE_TECHNIQUE.md`](docs/FICHE_TECHNIQUE.md) — spécifications complètes du produit
 
-### Voie B — SWD via ST-Link *(4 fils sur les pads de test)*
+**Accès firmware (voies identifiées) :**
+- **Voie A — USB DFU** (sans soudure) : forcer BOOT0 haut + USB Mini-B + STM32CubeProgrammer
+- **Voie B — SWD** : pads SWDIO (PA13) / SWCLK (PA14) / GND / 3,3 V
 
-| Signal | Broche MCU |
-|---|---|
-| SWDIO | PA13 |
-| SWCLK | PA14 |
-| GND | GND |
-| Référence | 3,3V |
+> ⚠️ Vérifier le niveau RDP avant toute tentative de flash — RDP1 = effacement firmware d'origine.
 
-```bash
-st-info --probe   # vérifier la connexion
-```
-
-### ⚠️ Protection en lecture (RDP)
-
-| Niveau | Conséquence |
-|---|---|
-| RDP 0 | Accès libre |
-| RDP 1 | Effacement complet obligatoire (firmware d'origine perdu) |
-| RDP 2 | SWD verrouillé définitivement → MCU externe obligatoire |
-
-> ⚠️ Le Bluetooth (WT12-A) n'est PAS une voie de programmation — UART données uniquement.
 ---
 
-## 7. Consignes de sécurité
+## Phase 2 — Champ des possibles
 
-> ⚠️ **Laser classe 3R** : ne jamais pointer vers les yeux — porter des lunettes de protection  
+**Objectif :** cartographier exhaustivement ce qui est réutilisable, ce qui peut être ajouté, et les limites fonctionnelles.
+
+**Fichier associé :** [`docs/PHASE2_CHAMP_DES_POSSIBLES.md`](docs/PHASE2_CHAMP_DES_POSSIBLES.md)
+
+Fonctions matérielles directement réutilisables :
+
+| Fonction | Blocs impliqués | Interfaces |
+|---|---|---|
+| Capture image | OV9712 + STM32 DCMI + SDRAM | DCMI, I2C/SCCB, FMC |
+| Projection laser | Diode laser + driver | GPIO / PWM |
+| Traitement embarqué | STM32F429NIH6 | GPIO, timers, DMA |
+| Liaison sans fil | WT12-A | UART TTL 3,3 V |
+| Interface opérateur | Bouton + LED RGB + Buzzer | GPIO / PWM |
+| Alimentation portable | Li-Po + power tree | 3,3 V, rails dérivés |
+
+---
+
+## Phase 3 — Idéation
+
+**Objectif :** imaginer des concepts de réemploi, explorer largement, puis converger sur une idée.
+
+### Concepts proposés par l'équipe
+
+| Membre | Fichier | Concept | Valeur | Difficulté | Réemploi |
+|---|---|---|---|---|---|
+| Yanis | [`Phase 3 Ideation/Yanis/concept.md`](Phase%203%20Ideation/Yanis/concept.md) | **VisioTri** — assistant de tri des matériaux par vision | 7/10 | 6/10 | ~90% |
+| Hisami | [`Phase 3 Ideation/Hisami/concept2.md`](Phase%203%20Ideation/Hisami/concept2.md) | **VéloScan** — diagnostic portable pour flottes de vélos en libre-service | 9/10 | 7/10 | ~95% |
+| Alexandre | [`Phase 3 Ideation/Alexandre/concept.md`](Phase%203%20Ideation/Alexandre/concept.md) | Concept Alexandre | — | — | — |
+| Edin | [`Phase 3 Ideation/Edin/Eddin-ADOU.md`](Phase%203%20Ideation/Edin/Eddin-ADOU.md) | Concept Edin | — | — | — |
+
+### Concept retenu — VisioTri (Yanis)
+
+**Justification du choix :**
+VisioTri présente l'alignement RSE le plus fort et le plus lisible : un appareil destiné au rebut devient directement un outil qui améliore le tri et le recyclage d'autres déchets, formant une boucle vertueuse convaincante pour la Direction RSE de FACOM. Le concept s'appuie sur ~90 % des composants d'origine sans ajout matériel lourd, et la classification par règles visuelles (histogramme couleur, seuils) reste réaliste dans l'enveloppe CPU/RAM du STM32F429 sans nécessiter un modèle IA embarqué coûteux. Enfin, le débouché métier est concret et immédiat — les recycleries et déchèteries sont réellement sous-équipées en outils numériques nomades abordables.
+
+---
+
+## Consignes de sécurité
+
+> ⚠️ **Laser classe 3R** : ne jamais pointer vers les yeux — lunettes de protection obligatoires  
 > ⚠️ **Batterie Li-Ion** : éviter court-circuit et surchauffe — arrêter si gonflement  
 > ⚠️ **Composants démontés** : tout reste dans la zone de travail (exigence RSE)  
 > ⚠️ **Documentation** : photos + notes en continu à chaque étape
 
 ---
 
-*README Composants — FACOM SCANDIAG® DX.TSCANPB · Concours National Informatique Ynov*
+## Livrable final à FACOM
 
+- [ ] Membres de l'équipe (noms, classe, campus Ynov)
+- [ ] Datasheets des composants clés → [`datasheets/`](datasheets/)
+- [ ] Schéma fonctionnel du produit → [`docs/SCHEMA_PRINCIPE_FONCTIONNEL.md`](docs/SCHEMA_PRINCIPE_FONCTIONNEL.md)
+- [ ] Descriptifs des idées de réemploi avec notation → [`Phase 3 Ideation/`](Phase%203%20Ideation/)
+- [ ] Concept retenu et justification → ci-dessus
+- [ ] Archive du ou des programmes développés (firmware)
+- [ ] Documentation des fonctions développées
+
+---
+
+*Concours National Informatique Ynov × FACOM — Campus Bordeaux · 2025*
