@@ -43,6 +43,8 @@ Caractéristiques clés (préliminaires):
 - Interfaces principales: UART, I2C, SPI (potentiel), DCMI caméra, FMC SDRAM, USB OTG FS (à confirmer côté câblage D+/D-).
 - Consommation système: ordre de grandeur 60 à 380 mA selon mode (veille, acquisition, BT, laser), à confirmer par mesure.
 
+Livrable Phase 2 (champ des possibles): voir [PHASE2_CHAMP_DES_POSSIBLES.md](PHASE2_CHAMP_DES_POSSIBLES.md).
+
 ---
 
 ## 3. Inventaire des composants
