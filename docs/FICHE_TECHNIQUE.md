@@ -159,15 +159,17 @@ Attention à la **protection en lecture (RDP)** : le niveau 1 impose un effaceme
 
 ## 6. Suivi des datasheets
 
-| Composant | Référence | Datasheet archivée |
-|---|---|:---:|
-| MCU | STM32F429NIH6 | [ ] |
-| Bluetooth | WT12-A | [ ] |
-| SDRAM | IS42S16400J | [ ] |
-| Flash | Micron (décoder 9DA15/RB151) | [ ] |
-| Caméra | OV9712 | [ ] |
-| Batterie | EEMB LP602248 | [ ] |
-| Driver laser | à vérifier | [ ] |
+Mini-rendus légers ajoutés dans chaque dossier `datasheets/*/SYNTHESE.md`.
+
+| Composant | Référence | Datasheet archivée | Statut |
+|---|---|:---:|---|
+| MCU | STM32F429NIH6 | [x] | PDF présent, variante à corriger vers référence exacte F429NIH6 |
+| Bluetooth | WT12-A | [x] | PDF présent |
+| SDRAM | IS42S16400J | [x] | PDF présent |
+| Flash | Micron (décoder 9DA15/RB151) | [ ] | Référence complète non décodée |
+| Caméra | OV9712 | [x] | PDF présent, vérifier capteur nu vs fiche module |
+| Batterie | EEMB LP602248 | [x] | PDF présent |
+| Driver laser | à vérifier | [ ] | Norme IEC présente, datasheet composant manquante |
 
 ---
 
