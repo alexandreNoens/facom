@@ -67,21 +67,20 @@ Contenu du dossier équipe :
 
 | Composant recherché | Référence trouvée | Rôle | Statut |
 |---|---|---|---|
-| MCU / SoC | à identifier | Traitement principal | ⚠️ Non trouvé |
-| Caméra CMOS | à identifier | Capture image | ⚠️ Non trouvé |
-| Laser + driver | à identifier | Mesure de profondeur | ⚠️ Non trouvé |
-| Batterie Li-Ion | 3,7V / 0,620Ah (doc officielle) | Alimentation | ✅ Identifié (doc) |
-| Module Bluetooth | WT12-A | Communication sans fil | ✅ Identifié |
-| Mémoire SDRAM | IS42S16400J-6BLI | Mémoire de travail | ✅ Identifié |
-| Diode redresseuse | RB151 | Protection alimentation | ✅ Identifié |
-| Convertisseur DC-DC | à identifier | Conversion tension | ⚠️ Non trouvé |
-| Régulateur de puissance | à identifier | Stabilisation tension | ⚠️ Non trouvé |
-| Convertisseur USB/TTL | à identifier | Communication PC / debug | ⚠️ Non trouvé |
-| Mémoire flash | à identifier | Stockage firmware | ⚠️ Non trouvé |
-| LED multicolore | à identifier | Interface visuelle | ⚠️ Non trouvé |
-| Boutons | Visibles extérieurement | Interface utilisateur | ✅ Identifié (visuel) |
-| Connecteur USB Mini-B | Visible extérieurement | Alimentation / communication | ✅ Identifié (doc) |
-
+| MCU / SoC | STM32F429NIH6 — ARM Cortex-M4, 180MHz, BGA216 | Traitement principal | ✅ Identifié |
+| Caméra CMOS | OV9712 (JAL-KM1-OV9712 V4.0) — 1Mpx, 30fps | Capture image | ✅ Identifié |
+| Laser + driver | Classe 3R, vert 510–530nm, ≤5mW — driver à vérifier | Mesure d'usure par projection | ⚠️ Driver à confirmer |
+| Batterie Li-Po | EEMB LP602248 — 3,7V / 620mAh / 2,3Wh, JST 2 broches | Alimentation portable | ✅ Identifié |
+| Module Bluetooth | WT12-A (Silicon Labs / Bluegiga) — BT Classic 2.1+EDR | Communication sans fil UART | ✅ Identifié |
+| Mémoire SDRAM | IS42S16400J-6BLI (ISSI) — 64Mbit, 4Mx16, bus FMC | Mémoire de travail / tampon image | ✅ Identifié |
+| Mémoire flash | Micron — marquage 9DA15 / RB151 (FBGA à décoder) | Stockage firmware / calibration | ⚠️ Référence à décoder |
+| Diode redresseuse | RB151 (Formosa) | Protection alimentation | ✅ Identifié |
+| Convertisseur DC-DC | 2 inductances visibles — références à vérifier | Génère rail 3,3V | ⚠️ À confirmer |
+| Régulateur de puissance | À vérifier | Stabilisation tensions caméra / laser | ⚠️ À confirmer |
+| Connecteur USB Mini-B | Confirmé — USB OTG vers MCU à vérifier | Charge + données | ✅ Identifié |
+| Bouton poussoir | Bouton multifonction unique — référence SMD à confirmer | Interface utilisateur | ✅ Identifié (visuel) |
+| LED RGB | Confirmée — bleu=BT / vert=charge / rouge=batterie faible | Indicateur de statut | ✅ Identifié |
+| Buzzer | Confirmé | Bips de confirmation sonore | ✅ Identifié |
 ---
 
 ## 4. Schéma d'alimentation (restitué)
