@@ -119,43 +119,35 @@ Batterie Li-Ion (3,7V)
 | Batterie Li-Ion | Alimentation portable du système | 🟡 Moyenne | ✅ Identifié (doc) |
 | RB151 (diode) | Protection circuits dans nouveau projet | 🟢 Faible | ✅ Identifié |
 
----
+## 6. Accès au firmware
 
-## 6. Concept de réemploi retenu — Andon Numérique
+### Voie A — Bootloader USB DFU *(sans soudure)*
+1. Forcer la broche **BOOT0 à l'état haut**
+2. Brancher le câble **USB Mini-B**
+3. Flasher via **STM32CubeProgrammer** (logiciel gratuit ST)
 
-> Inspiré du Toyota Production System (Kaizen, Poka-Yoke, Andon)
+### Voie B — SWD via ST-Link *(4 fils sur les pads de test)*
 
-**Station de contrôle qualité industrielle** utilisant caméra + laser + Bluetooth pour détecter les défauts sur ligne de production en temps réel.
-
-| Critère | Valeur |
+| Signal | Broche MCU |
 |---|---|
-| Valeur perçue | 9/10 |
-| Difficulté technique | 7/10 |
-| Taux de réemploi | ~90% |
-| Enjeu RSE | Zéro déchet industriel |
+| SWDIO | PA13 |
+| SWCLK | PA14 |
+| GND | GND |
+| Référence | 3,3V |
 
-### Architecture système
-
-```
-[Pièce à inspecter]
-        │
-        ▼
-[Caméra CMOS + Laser]  ←── SCANDIAG réemployé
-        │
-        ▼
-[MCU / SoC]  ──► traitement embarqué
-        │
-        ▼
-[WT12-A Bluetooth]
-        │
-        ▼
-[Passerelle BT — Raspberry Pi / PC]
-        │
-        ├──► [API Backend] ──► [Dashboard Web temps réel]
-        │
-        └──► [Andon LED] ──► 🟢 OK / 🔴 NOK + alerte sonore
+```bash
+st-info --probe   # vérifier la connexion
 ```
 
+### ⚠️ Protection en lecture (RDP)
+
+| Niveau | Conséquence |
+|---|---|
+| RDP 0 | Accès libre |
+| RDP 1 | Effacement complet obligatoire (firmware d'origine perdu) |
+| RDP 2 | SWD verrouillé définitivement → MCU externe obligatoire |
+
+> ⚠️ Le Bluetooth (WT12-A) n'est PAS une voie de programmation — UART données uniquement.
 ---
 
 ## 7. Consignes de sécurité
