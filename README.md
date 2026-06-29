@@ -106,20 +106,20 @@ VisioTri présente l'alignement RSE le plus fort et le plus lisible : un apparei
 
 ## Consignes de sécurité
 
-> ⚠️ **Laser classe 3R** : ne jamais pointer vers les yeux — lunettes de protection obligatoires  
-> ⚠️ **Batterie Li-Ion** : éviter court-circuit et surchauffe — arrêter si gonflement  
-> ⚠️ **Composants démontés** : tout reste dans la zone de travail (exigence RSE)  
+> ⚠️ **Laser classe 3R** : ne jamais pointer vers les yeux — lunettes de protection obligatoires
+> ⚠️ **Batterie Li-Ion** : éviter court-circuit et surchauffe — arrêter si gonflement
+> ⚠️ **Composants démontés** : tout reste dans la zone de travail (exigence RSE)
 > ⚠️ **Documentation** : photos + notes en continu à chaque étape
 
 ---
 
 ## Livrable final à FACOM
 
-- [ ] Membres de l'équipe (noms, classe, campus Ynov)
-- [ ] Datasheets des composants clés → [`datasheets/`](datasheets/)
-- [ ] Schéma fonctionnel du produit → [`docs/SCHEMA_PRINCIPE_FONCTIONNEL.md`](docs/SCHEMA_PRINCIPE_FONCTIONNEL.md)
-- [ ] Descriptifs des idées de réemploi avec notation → [`Phase 3 Ideation/`](Phase%203%20Ideation/)
-- [ ] Concept retenu et justification → ci-dessus
+- [x] Membres de l'équipe (noms, classe, campus Ynov)
+- [x] Datasheets des composants clés → [`datasheets/`](datasheets/)
+- [x] Schéma fonctionnel du produit → [`docs/SCHEMA_PRINCIPE_FONCTIONNEL.md`](docs/SCHEMA_PRINCIPE_FONCTIONNEL.md)
+- [x] Descriptifs des idées de réemploi avec notation → [`Phase 3 Ideation/`](Phase%203%20Ideation/)
+- [x] Concept retenu et justification → [`docs/CONCEPT_RETENU_VISIOTRI.md`](docs/CONCEPT_RETENU_VISIOTRI.md)
 - [ ] Archive du ou des programmes développés (firmware)
 - [ ] Documentation des fonctions développées
 
