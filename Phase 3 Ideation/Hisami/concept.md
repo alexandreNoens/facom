@@ -79,28 +79,62 @@ en API                                                            │
 
 ---
 
+## Contextes d'utilisation
+
+### 1. Atelier de fabrication automobile *(contexte FACOM naturel)*
+- Vérifier les pièces avant montage
+- Détecter les pièces déformées ou hors tolérance
+- Même environnement que le SCANDIAG d'origine
+
+### 2. Ligne d'assemblage électronique
+- Vérifier les circuits imprimés
+- Détecter les soudures manquantes ou défectueuses
+
+### 3. Contrôle réception / logistique
+- Technicien reçoit une palette de pièces
+- Scanne rapidement chaque pièce à la réception
+- Valide ou rejette le lot
+
+### 4. Maintenance industrielle
+- Vérifier l'usure de pièces en service
+- Décider si une pièce peut encore être utilisée ou doit être changée
+- *(exactement comme le SCANDIAG faisait avec les freins)*
+
+### 5. PME / artisans
+- Pas les moyens d'un système automatisé coûteux
+- Outil portable, simple, pas cher
+- Un geste = une réponse
+
+> **Argument clé pour FACOM** : le contexte 4 est identique à l'usage d'origine — *même geste, même environnement, nouvelle utilité.*
+
+---
+
 ## Installation physique
 
-Le SCANDIAG est **fixé sur un support**, caméra et laser pointés vers le bas — il n'est pas tenu à la main.
+Le SCANDIAG est utilisé **à la main** — le boîtier, le bouton et l'ergonomie d'origine sont entièrement conservés. Taux de réemploi maximal (~95%).
 
 ```
-[Support fixe / étau]
-        │
-   [SCANDIAG fixé]
-   Caméra + Laser pointés vers le bas
-        │
+Opérateur tient le SCANDIAG
         ↓
-[Pièce posée ou passant sur convoyeur]
-        │
+Approche la pièce à inspecter
         ↓
-[Scan automatique → détection → dashboard]
+Appuie sur le bouton original
+        ↓
+Caméra + Laser scannent
+        ↓
+STM32 analyse
+        ↓
+Résultat → Bluetooth → Dashboard web
+        ↓
+LED RGB → 🟢 vert = OK / 🔴 rouge = NOK
 ```
 
-**Pour le POC demain :**
-- Opérateur pose la pièce sous le SCANDIAG fixé
-- Scan déclenché automatiquement
-- Résultat affiché sur dashboard
-- Pas besoin de vrai convoyeur ✅
+**Avantages de l'usage à la main :**
+- Boîtier original réutilisé ✅
+- Bouton original réutilisé ✅
+- Ergonomie conservée ✅
+- Aucun support / fixation supplémentaire nécessaire ✅
+- Taux de réemploi ~95% ✅
 
 ---
 
@@ -121,7 +155,7 @@ Le SCANDIAG est **fixé sur un support**, caméra et laser pointés vers le bas 
 |---|---|
 | Valeur perçue | 9/10 |
 | Difficulté technique | 7/10 |
-| Taux de réemploi | ~90% |
+| Taux de réemploi | ~95% |
 | Pertinence RSE | ⭐⭐⭐ |
 
 ---
