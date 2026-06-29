@@ -79,6 +79,31 @@ en API                                                            │
 
 ---
 
+## Installation physique
+
+Le SCANDIAG est **fixé sur un support**, caméra et laser pointés vers le bas — il n'est pas tenu à la main.
+
+```
+[Support fixe / étau]
+        │
+   [SCANDIAG fixé]
+   Caméra + Laser pointés vers le bas
+        │
+        ↓
+[Pièce posée ou passant sur convoyeur]
+        │
+        ↓
+[Scan automatique → détection → dashboard]
+```
+
+**Pour le POC demain :**
+- Opérateur pose la pièce sous le SCANDIAG fixé
+- Scan déclenché automatiquement
+- Résultat affiché sur dashboard
+- Pas besoin de vrai convoyeur ✅
+
+---
+
 ## Ajouts nécessaires
 
 | Ajout | Rôle |
