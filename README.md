@@ -26,6 +26,7 @@ Le produit FACOM SCANDIAG® n'est plus commercialisé mais un stock conséquent 
 
 ```
 facom/
+├── archive/             # sources PDF d'origine (non modifiées)
 ├── datasheets/          # Phase 1 — fiches composants + synthèses
 ├── docs/                # Phase 1 & 2 — schémas fonctionnels, champ des possibles
 ├── Phase 3 Ideation/    # Phase 3 — concepts de réemploi par membre
@@ -85,14 +86,16 @@ Fonctions matérielles directement réutilisables :
 
 **Objectif :** imaginer des concepts de réemploi, explorer largement, puis converger sur une idée.
 
+**Notice de phase :** [`Phase 3 Ideation/notice.md`](Phase%203%20Ideation/notice.md)
+
 ### Concepts proposés par l'équipe
 
 | Membre | Fichier | Concept | Valeur | Difficulté | Réemploi |
 |---|---|---|---|---|---|
 | Yanis | [`Phase 3 Ideation/Yanis/concept.md`](Phase%203%20Ideation/Yanis/concept.md) | **VisioTri** — assistant de tri des matériaux par vision | 7/10 | 6/10 | ~90% |
-| Hisami | [`Phase 3 Ideation/Hisami/concept2.md`](Phase%203%20Ideation/Hisami/concept2.md) | **VéloScan** — diagnostic portable pour flottes de vélos en libre-service | 9/10 | 7/10 | ~95% |
-| Alexandre | [`Phase 3 Ideation/Alexandre/concept.md`](Phase%203%20Ideation/Alexandre/concept.md) | Concept Alexandre | — | — | — |
-| Edin | [`Phase 3 Ideation/Edin/Eddin-ADOU.md`](Phase%203%20Ideation/Edin/Eddin-ADOU.md) | Concept Edin | — | — | — |
+| Hisami | [`Phase 3 Ideation/Hisami/concept.md`](Phase%203%20Ideation/Hisami/concept.md) | **VéloScan** — diagnostic portable pour flottes de vélos en libre-service | 9/10 | 7/10 | ~95% |
+| Alexandre | [`Phase 3 Ideation/Alexandre/concept.md`](Phase%203%20Ideation/Alexandre/concept.md) | **Lampe-caméra d'inspection auto** — inspection visuelle de zones étroites | 9/10 | 5/10 | ~80% |
+| Eddin | [`Phase 3 Ideation/Eddin/concept.md`](Phase%203%20Ideation/Eddin/concept.md) | Concept Eddin | — | — | — |
 
 ### Concept retenu — VisioTri (Yanis)
 
