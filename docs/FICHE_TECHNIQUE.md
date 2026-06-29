@@ -18,21 +18,30 @@ Un instrument portatif posé sur un disque de frein ou un pneu. Un **laser vert*
 
 ## 2. Schéma fonctionnel du système
 
+Version détaillée: voir [SCHEMA_PRINCIPE_FONCTIONNEL.md](SCHEMA_PRINCIPE_FONCTIONNEL.md).
+
+Schéma de principe (résumé):
+
 ```
-                 +---------------------------+
-   USB Mini-B ---|  Charge + (données OTG ?) |
-                 +------------+--------------+
-                              |
-   Li-Po 3,7V ----> [DC-DC / régulateurs] ----> rail 3,3V
-                              |
-        +---------------------+---------------------+
-        |                     |                     |
-   [Caméra OV9712] --DCMI----> STM32F429 <---FMC---> [SDRAM ISSI]
-        |                     |   (MCU)   <---SPI?--> [Flash Micron]
-   [Laser + driver] <--GPIO---+
-                              |---UART---> [Module Bluetooth WT12] ---> antenne
-                              |---GPIO---> [bouton, LED RGB, buzzer]
+USB Mini-B 5V ----+
+                   +--> [Chargeur + DC-DC/regulateurs] --> 3,3V logique --> STM32F429NIH6
+Li-Po 3,7V -------+
+
+STM32F429NIH6 <--> SDRAM IS42S16400J (FMC)
+STM32F429NIH6 <--> Camera OV9712 (DCMI + I2C config)
+STM32F429NIH6 --> Driver laser --> Diode laser verte (<= 5 mW)
+STM32F429NIH6 <--> WT12-A Bluetooth (UART)
+STM32F429NIH6 <--> UI locale (bouton, LED RGB, buzzer)
+STM32F429NIH6 --> Option ecran/IHM (LTDC RGB, SPI, I2C selon extension)
+
+Connecteurs externes: USB Mini-B, JST batterie, pads SWD.
 ```
+
+Caractéristiques clés (préliminaires):
+- Batterie: Li-Po 3,7 V nominal, 620 mAh.
+- Niveaux logiques carte: 3,3 V majoritaires.
+- Interfaces principales: UART, I2C, SPI (potentiel), DCMI caméra, FMC SDRAM, USB OTG FS (à confirmer côté câblage D+/D-).
+- Consommation système: ordre de grandeur 60 à 380 mA selon mode (veille, acquisition, BT, laser), à confirmer par mesure.
 
 ---
 
