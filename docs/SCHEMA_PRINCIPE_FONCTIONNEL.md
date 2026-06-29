@@ -10,29 +10,29 @@ Statuts:
 
 ```mermaid
 flowchart LR
-    USB[USB Mini-B 5V\ncharge + USB OTG? [a verifier]] --> PMIC[Chargeur + DC-DC + regulateurs]
-    BAT[Batterie Li-Po\n3.7V nominal\n620mAh] --> PMIC
+    USB["USB Mini-B 5V<br/>charge + USB OTG a verifier"] --> PMIC["Chargeur + DC-DC + regulateurs"]
+    BAT["Batterie Li-Po<br/>3.7V nominal<br/>620mAh"] --> PMIC
 
-    PMIC --> R33[Rail 3.3V logique]
-    PMIC --> RCAM[Rail camera 2.8V/1.8V? [a verifier]]
-    PMIC --> RLAS[Rail driver laser [a verifier]]
+    PMIC --> R33["Rail 3.3V logique"]
+    PMIC --> RCAM["Rail camera 2.8V/1.8V a verifier"]
+    PMIC --> RLAS["Rail driver laser a verifier"]
 
-    R33 --> MCU[STM32F429NIH6\nCortex-M4F 180MHz]
-    R33 --> BT[WT12-A\nBluetooth Classic UART]
-    R33 --> UI[UI: bouton, LED RGB, buzzer]
+    R33 --> MCU["STM32F429NIH6<br/>Cortex-M4F 180MHz"]
+    R33 --> BT["WT12-A<br/>Bluetooth Classic UART"]
+    R33 --> UI["UI: bouton, LED RGB, buzzer"]
 
-    MCU <-->|FMC 16-bit| SDRAM[IS42S16400J\nSDRAM 64Mbit]
-    MCU <-->|DCMI + I2C config| CAM[OV9712\nCamera 1Mpx]
-    MCU -->|GPIO/PWM/EN| LDRV[Driver laser courant constant\nref CI [a verifier]]
-    LDRV --> LASER[Diode laser verte\nClasse 3R <=5mW]
+    MCU <-->|FMC 16-bit| SDRAM["IS42S16400J<br/>SDRAM 64Mbit"]
+    MCU <-->|DCMI + I2C config| CAM["OV9712<br/>Camera 1Mpx"]
+    MCU -->|GPIO/PWM/EN| LDRV["Driver laser courant constant<br/>ref CI a verifier"]
+    LDRV --> LASER["Diode laser verte<br/>Classe 3R <= 5mW"]
 
     MCU <-->|UART 3.3V TTL| BT
-    BT --> ANT[Antenne integree]
+    BT --> ANT["Antenne integree"]
 
-    MCU -->|LTDC RGB + sync| DISP[Option ecran TFT/IHM locale]
-    MCU -->|GPIO/I2C/SPI| EXT[Option IHM externe\nclavier, encodeur, capteurs]
+    MCU -->|LTDC RGB + sync| DISP["Option ecran TFT/IHM locale"]
+    MCU -->|GPIO/I2C/SPI| EXT["Option IHM externe<br/>clavier, encodeur, capteurs"]
 
-    SWD[Pads SWDIO/SWCLK/GND/3V3] --- MCU
+    SWD["Pads SWDIO/SWCLK/GND/3V3"] --- MCU
 ```
 
 ## 2. Chaine d'alimentation
